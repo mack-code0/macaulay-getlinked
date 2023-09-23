@@ -32,7 +32,7 @@ const initialValues = {
 const validationSchema = yup.object({
     team_name: yup.string().required("Team Name cannot be blank"),
     phone_number: yup.number().typeError("Enter valid number").required("Phone Number cannot be blank"),
-    email: yup.string().required("email cannot be blank"),
+    email: yup.string().email("Email is invalid").required("Email cannot be blank"),
     project_topic: yup.string().required("Project Topic cannot be blank"),
     category: yup.object({
         value: yup.string().required("Category cannot be blank")
