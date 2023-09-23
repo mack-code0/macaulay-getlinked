@@ -12,8 +12,24 @@ import fireEmoji from "../../../assets/images/landingPage/hero/fireEmoji.svg"
 import bulb from "../../../assets/images/landingPage/hero/bulb.svg"
 import Button from "../../../components/Button";
 import Paragraph from "../../../components/Paragraph";
+import { useEffect, useState } from "react";
+import moment from "moment";
 
 const Hero = () => {
+    const [elapsedTime, setElapsedTime] = useState(moment.duration(0));
+
+    useEffect(() => {
+        const startTime = moment(); // Set your start time here
+
+        const intervalId = setInterval(() => {
+            const currentTime = moment();
+            const elapsedDuration = moment.duration(currentTime.diff(startTime));
+            setElapsedTime(elapsedDuration);
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (<Container className="tw-w-full tw-pt-[100px]">
         <div className="tw-flex tw-justify-end md:tw-max-w-min tw-ml-auto tw-relative">
             <img src={star} className="tw-absolute -tw-left-[150%] -tw-bottom-10" alt="" />
@@ -34,9 +50,9 @@ const Hero = () => {
                     <Paragraph className="md:tw-w-[70%] tw-text-center md:tw-text-left tw-mt-3">Participate in getlinked tech Hackathon 2023 stand a chance to win a Big prize</Paragraph>
                     <Button className="!tw-mt-8">Register</Button>
                     <div className="tw-mt-16 tw-flex tw-space-x-4 tw-text-white">
-                        <p className="tw-text-5xl tw-font-unicaOne">00<small className="tw-text-xs tw-font-unicaOne">H</small></p>
-                        <p className="tw-text-5xl tw-font-unicaOne">00<small className="tw-text-xs tw-font-unicaOne">M</small></p>
-                        <p className="tw-text-5xl tw-font-unicaOne">00<small className="tw-text-xs tw-font-unicaOne">s</small></p>
+                        <p className="tw-text-5xl tw-font-unicaOne">{elapsedTime.hours().toString().padStart(2, '0')}<small className="tw-text-xs tw-font-unicaOne">H</small></p>
+                        <p className="tw-text-5xl tw-font-unicaOne">{elapsedTime.minutes().toString().padStart(2, '0')}<small className="tw-text-xs tw-font-unicaOne">M</small></p>
+                        <p className="tw-text-5xl tw-font-unicaOne">{elapsedTime.seconds().toString().padStart(2, '0')}<small className="tw-text-xs tw-font-unicaOne">s</small></p>
                     </div>
                 </div>
             </div>
