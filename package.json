@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/core": "^7.0.0",
+    "@mantine/hooks": "^7.0.0",
     "@svgr/webpack": "^8.1.0",
     "antd": "^5.9.2",
     "moment": "^2.29.4",

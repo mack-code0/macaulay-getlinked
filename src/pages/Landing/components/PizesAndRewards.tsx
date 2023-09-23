@@ -25,7 +25,7 @@ const PrizesAndRewards = () => {
                 </div>
             </Col>
             <Col xs={24} lg={12}>
-                <Row className="tw-pt-[50px]" gutter={[25, 25]}>
+                <Row className="tw-pt-[50px]" gutter={[20, 20]}>
                     <Col span={8}>
                         <div className="tw-h-[150px] sm:tw-h-[220px] tw-relative tw-bg-[#d434fe1e] tw-border tw-border-violet tw-px-4 tw-pb-5 tw-rounded-[8px] tw-flex tw-items-center tw-justify-end tw-flex-col">
                             <div className="tw-w-[100px] sm:tw-w-[130px] tw-absolute -tw-top-[60px]">

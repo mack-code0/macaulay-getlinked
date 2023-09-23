@@ -1,5 +1,6 @@
 import Contact from "../pages/Contact";
 import Landing from "../pages/Landing";
+import Register from "../pages/Register";
 
 
 export interface routeInterface {
@@ -20,7 +21,7 @@ export const contactRoutes: routeInterface[] = [
 export const registerRoutes: routeInterface[] = [
   {
     path: "/register",
-    component: Contact,
+    component: Register,
     breadcrumb: [{ title: "Register", route: "/register" }],
   },
 ];

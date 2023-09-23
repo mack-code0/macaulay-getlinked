@@ -11,7 +11,7 @@ import styled from "styled-components";
 import bground from "../../assets/images/bg/ContactPage.png"
 
 const Contact = () => {
-    return (<Container className="!tw-bg-darkPurple">
+    return (<Container className="!tw-bg-darkPurple tw-overflow-x-hidden">
         <NavBar />
         <ComponentContainer className="lg:tw-py-[300px] tw-py-[100px] !tw-bg-[transparent]">
             <Row className="lg:tw-items-center" gutter={[20, 20]}>
