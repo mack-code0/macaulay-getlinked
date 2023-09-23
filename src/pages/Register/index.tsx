@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import successfulRegistration from "../../assets/images/successfulRegistration.png"
+import bground from "../../assets/images/bg/ContactPage.png"
+import styled from "styled-components";
 
 
 const initialValues = {
@@ -66,7 +68,7 @@ const Register = () => {
     }, [])
 
 
-    return (<div className="!tw-bg-contactBg tw-bg-cover tw-overflow-x-hidden">
+    return (<Container className="!tw-bg-darkPurple tw-overflow-x-hidden">
         <NavBar />
         {successfullyRegistered
             && <div className="tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center tw-backdrop-blur-sm tw-bg-black tw-bg-opacity-70 tw-z-50">
@@ -272,7 +274,11 @@ const Register = () => {
                 </Col>
             </Row>
         </ComponentContainer>
-    </div>);
+    </Container>);
 }
 
+const Container = styled.div`
+    background-image: url(${bground});
+    background-size: cover;
+`
 export default Register;

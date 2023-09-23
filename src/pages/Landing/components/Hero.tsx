@@ -14,10 +14,11 @@ import Button from "../../../components/Button";
 import Paragraph from "../../../components/Paragraph";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+    const navigate = useNavigate()
     const [elapsedTime, setElapsedTime] = useState(moment.duration(0));
-
     useEffect(() => {
         const startTime = moment(); // Set your start time here
 
@@ -48,7 +49,7 @@ const Hero = () => {
                             <img src={fireEmoji} alt="Fire" className="tw-w-[20px] tw-w-h-auto md:tw-w-[40px]" /></h1>
                     </div>
                     <Paragraph className="tw-leading-5 md:tw-leading-7 tw-w-[100%] md:tw-w-[70%] tw-text-center md:tw-text-left tw-mt-3">Participate in getlinked tech Hackathon 2023 stand a chance to win a Big prize</Paragraph>
-                    <Button className="!tw-mt-8">Register</Button>
+                    <Button onClick={() => navigate("/register")} className="!tw-mt-8">Register</Button>
                     <div className="tw-mt-16 tw-flex tw-space-x-4 tw-text-white">
                         <p className="tw-text-5xl tw-font-unicaOne">{elapsedTime.hours().toString().padStart(2, '0')}<small className="tw-text-xs tw-font-unicaOne">H</small></p>
                         <p className="tw-text-5xl tw-font-unicaOne">{elapsedTime.minutes().toString().padStart(2, '0')}<small className="tw-text-xs tw-font-unicaOne">M</small></p>

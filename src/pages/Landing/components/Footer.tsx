@@ -30,10 +30,10 @@ const Footer = () => {
             <Col className="tw-flex md:tw-justify-center" xs={24} md={7}>
                 <div className="tw-space-y-2 tw-flex tw-flex-col">
                     <Paragraph className="!tw-text-violet !tw-font-bold">Useful Links</Paragraph>
-                    <a href="" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Overview</Paragraph></a>
-                    <a href="" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Timeline</Paragraph></a>
-                    <a href="" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">FAQs</Paragraph></a>
-                    <a href="" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Register</Paragraph></a>
+                    <a href="/#overview" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Overview</Paragraph></a>
+                    <a href="/#timeline" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Timeline</Paragraph></a>
+                    <a href="/#faqs" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">FAQs</Paragraph></a>
+                    <a href="/register" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Register</Paragraph></a>
                     <div className="tw-flex tw-space-x-4">
                         <Paragraph className="!tw-text-[12px] !tw-text-violet !tw-font-bold">Follow Us</Paragraph>
                         <div className="tw-flex tw-items-center tw-space-x-3">
