@@ -26,7 +26,7 @@ export default function NavBar() {
     const navigate = useNavigate()
 
     return (
-        <nav className="tw-w-full md:tw-bg-transparent tw-bg-darkPurple tw-absolute">
+        <nav className="tw-w-full md:tw-bg-transparent tw-bg-darkPurple tw-absolute tw-z-20">
             <div className="tw-justify-between tw-px-4 tw-mx-auto lg:tw-max-w-7xl md:tw-items-center md:tw-flex md:tw-px-[70px]">
                 <div>
                     <div className="tw-flex tw-items-center tw-justify-between tw-py-3 md:tw-py-8 md:tw-block">
@@ -40,30 +40,29 @@ export default function NavBar() {
                                 {navbar ? (
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
+                                        width="19"
+                                        height="14"
+                                        fill="none"
+                                        viewBox="0 0 19 14"
                                     >
                                         <path
-                                            fillRule="evenodd"
-                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
+                                            fill="#fff"
+                                            d="M1.357 0h6.786c.36 0 .705.147.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41H1.358c-.36 0-.705-.147-.96-.41A1.423 1.423 0 010 1.4C0 1.029.143.673.397.41c.255-.263.6-.41.96-.41zm9.5 11.2h6.786c.36 0 .705.148.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41h-6.785c-.36 0-.705-.148-.96-.41a1.423 1.423 0 01-.397-.99c0-.371.143-.727.398-.99.254-.262.6-.41.96-.41zm-9.5-5.6h16.286c.36 0 .705.147.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41H1.358c-.36 0-.705-.148-.96-.41A1.423 1.423 0 010 7c0-.371.143-.727.397-.99.255-.263.6-.41.96-.41z"
+                                        ></path>
                                     </svg>
+
                                 ) : (
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
+                                        width="19"
+                                        height="14"
                                         fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
+                                        viewBox="0 0 19 14"
                                     >
                                         <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M4 6h16M4 12h16M4 18h16"
-                                        />
+                                            fill="#fff"
+                                            d="M1.357 0h6.786c.36 0 .705.147.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41H1.358c-.36 0-.705-.147-.96-.41A1.423 1.423 0 010 1.4C0 1.029.143.673.397.41c.255-.263.6-.41.96-.41zm9.5 11.2h6.786c.36 0 .705.148.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41h-6.785c-.36 0-.705-.148-.96-.41a1.423 1.423 0 01-.397-.99c0-.371.143-.727.398-.99.254-.262.6-.41.96-.41zm-9.5-5.6h16.286c.36 0 .705.147.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41H1.358c-.36 0-.705-.148-.96-.41A1.423 1.423 0 010 7c0-.371.143-.727.397-.99.255-.263.6-.41.96-.41z"
+                                        ></path>
                                     </svg>
                                 )}
                             </button>
@@ -81,11 +80,12 @@ export default function NavBar() {
                     </div>
                 </div>
                 <div className={`tw-flex tw-flex-row md:tw-flex ${navbar ? "tw-block tw-py-5" : "tw-hidden"}`}>
-                    <a href="/register" className="tw-rounded-[4px] tw-bg-primary2 tw-font-montserrat hover:tw-bg-primary tw-text-xs tw-text-white tw-px-8 tw-py-3 tw-font-semibold tw-cursor-pointer" onClick={() => navigate("/signup")}>
+                    <button className="tw-rounded-[4px] tw-bg-primary2 tw-font-montserrat hover:tw-bg-primary tw-text-xs tw-text-white tw-px-8 tw-py-3 tw-font-semibold tw-cursor-pointer" onClick={() => navigate("/register")}>
                         Register
-                    </a>
+                    </button>
                 </div>
             </div>
         </nav>
     );
 }
+// https://macaulay-getlinked.netlify.app
