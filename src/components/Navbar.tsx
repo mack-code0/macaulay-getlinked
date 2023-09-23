@@ -29,7 +29,7 @@ export default function NavBar() {
         <nav className="tw-w-full md:tw-bg-transparent tw-bg-darkPurple tw-absolute tw-z-20">
             <div className="tw-justify-between tw-px-4 tw-mx-auto lg:tw-max-w-7xl md:tw-items-center md:tw-flex md:tw-px-[70px]">
                 <div>
-                    <div className="tw-flex tw-items-center tw-justify-between tw-py-3 md:tw-py-8 md:tw-block">
+                    <div className="tw-flex tw-items-center tw-justify-between tw-py-5 md:tw-py-8 md:tw-block">
                         <img src={logo} onClick={() => navigate("/")} className="tw-cursor-pointer tw-w-[120px]" />
                         <div className="md:tw-hidden">
                             <button
