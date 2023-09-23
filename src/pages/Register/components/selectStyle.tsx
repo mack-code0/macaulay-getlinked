@@ -6,18 +6,26 @@ const selectStyle: StylesConfig<unknown, false, GroupBase<unknown>> | undefined 
         background: "#e9e9e911",
         border: "1px solid #fff",
         padding: "0.3rem",
-        borderRadius: "5px"
+        borderRadius: "5px",
     }),
     control: (base) => ({
         ...base,
         background: "none",
         border: "none",
-        boxShadow:"none"
+        boxShadow: "none",
     }),
     placeholder: (base) => ({
         ...base,
         color: "rgba(255, 255, 255, 0.5)",
-        whiteSpace:"nowrap"
+        whiteSpace: "nowrap"
+    }),
+    input: (base) => ({
+        ...base,
+        color: "#fff",
+    }),
+    singleValue: (base) => ({
+        ...base,
+        color: "#fff",
     }),
     indicatorSeparator: () => ({})
 }

@@ -15,15 +15,17 @@ import { Formik, Form, ErrorMessage } from "formik";
 import * as yup from "yup"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import successfulRegistration from "../../assets/images/successfulRegistration.png"
 
 
 const initialValues = {
     email: "",
     phone_number: "",
     team_name: "",
-    group_size: "",
+    group_size: { value: "", label: "" },
     project_topic: "",
-    category: "",
+    category: { value: "", label: "" },
     privacy_poclicy_accepted: "",
 }
 
@@ -32,12 +34,17 @@ const validationSchema = yup.object({
     phone_number: yup.number().typeError("Enter valid number").required("Phone Number cannot be blank"),
     email: yup.string().required("email cannot be blank"),
     project_topic: yup.string().required("Project Topic cannot be blank"),
-    category: yup.string().required("Category cannot be blank"),
-    group_size: yup.string().required("Group Size cannot be blank"),
+    category: yup.object({
+        value: yup.string().required("Category cannot be blank")
+    }),
+    group_size: yup.object({
+        value: yup.string().required("Group Size cannot be blank"),
+    }),
     privacy_poclicy_accepted: yup.string().required("Accept Privacy policy")
 })
 
 const Register = () => {
+    const [successfullyRegistered, setSuccessfullyRegistered] = useState(false)
     const [categoriesState, setCategoriesState] = useState({
         data: [] as { id: number, name: string }[] | [],
         loading: true,
@@ -57,7 +64,26 @@ const Register = () => {
     useEffect(() => {
         fetchCategories()
     }, [])
+
+
     return (<div className="!tw-bg-contactBg tw-bg-cover tw-overflow-x-hidden">
+        {successfullyRegistered
+            && <div className="tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center tw-backdrop-blur-sm tw-bg-black tw-bg-opacity-70 tw-z-50">
+                <div className="tw-border tw-border-violet tw-p-8 tw-rounded-lg tw-shadow-lg tw-text-center tw-flex tw-flex-col tw-items-center">
+                    <div>
+                        <img className="tw-object-scale-down" src={successfulRegistration} alt="" />
+                    </div>
+                    <h1 className="md:tw-text-3xl tw-text-2xl tw-text-[#fff] tw-font-bold tw-mb-4 tw-w-full md:tw-w-3/4 tw-mx-auto">
+                        Congratulations
+                        you have successfully Registered!
+                    </h1>
+                    <Paragraph className="tw-text-sm md:tw-text-lg tw-w-full md:tw-w-3/4 tw-mx-auto tw-mb-5">
+                        Yes, it was easy and you did it!
+                        check your mail box for next step
+                    </Paragraph>
+                    <Button onClick={() => window.location.reload()} className="tw-w-full">Back</Button>
+                </div>
+            </div>}
         <NavBar />
         <ComponentContainer className="lg:tw-py-[150px] tw-py-[100px] !tw-bg-[transparent]">
             <Row className="tw-items-center" gutter={[20, 20]}>
@@ -82,14 +108,31 @@ const Register = () => {
                             initialValues={initialValues}
                             validationSchema={validationSchema}
                             onSubmit={async (val) => {
+                                const payload = {
+                                    ...val,
+                                    group_size: val.group_size.value,
+                                    category: val.category.value,
+                                    privacy_poclicy_accepted: val.privacy_poclicy_accepted === "true"
+                                }
                                 try {
-                                    console.log(val)
+                                    await axios.post(`https://backend.getlinked.ai/hackathon/registration`, payload, {
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        }
+                                    })
+                                    setSuccessfullyRegistered(true)
                                 } catch (error: any) {
-
+                                    if (error.response.data) {
+                                        const errorArray = Object.entries(error.response.data)[0]
+                                        const errorArrayValue: any = errorArray[1]
+                                        toast.error(errorArrayValue?.length > 0 ? errorArrayValue[0] : "An error occured, Please check your values")
+                                    } else {
+                                        toast.error("An error occured, Please check your values")
+                                    }
                                 }
                             }}
                         >
-                            {({ values, handleChange, handleBlur, setFieldValue }) =>
+                            {({ values, handleChange, handleBlur, setFieldValue, isSubmitting }) =>
                                 <Form className="tw-flex tw-flex-col tw-space-y-7">
                                     <div className="tw-flex tw-flex-col lg:tw-flex-row tw-space-y-6 lg:tw-space-y-0 lg:tw-space-x-6">
                                         <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
@@ -165,7 +208,9 @@ const Register = () => {
                                                 styles={selectStyle}
                                                 placeholder="Select your category"
                                                 value={values.category}
+                                                name="category"
                                                 onChange={(val) => setFieldValue("category", val)}
+                                                onBlur={handleBlur}
                                                 options={categoriesState.data.map((category) => ({ value: category.id, label: category.name }))}
                                             />
                                             <ErrorMessage name="category" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
@@ -176,9 +221,12 @@ const Register = () => {
                                                 Group Size
                                             </Paragraph>
                                             <ReactSelect
-                                                onChange={(val) => setFieldValue("category", val)}
+                                                value={values.group_size}
+                                                onChange={(val) => setFieldValue("group_size", val)}
                                                 options={Array.from({ length: 10 }).map((_, idx: number) => ({ value: idx + 1, label: idx + 1 }))}
                                                 styles={selectStyle}
+                                                name="group_size"
+                                                onBlur={handleBlur}
                                                 placeholder="Select"
                                             />
                                             <ErrorMessage name="group_size" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
@@ -205,7 +253,9 @@ const Register = () => {
                                         </div>
                                     </div>
 
-                                    <Button type="submit" className="tw-w-full">Register Now</Button>
+                                    <Button disabled={isSubmitting} type="submit" className="tw-w-full">
+                                        {isSubmitting ? "Submitting..." : "Register Now"}
+                                    </Button>
                                 </Form>}
                         </Formik>
                     </div>

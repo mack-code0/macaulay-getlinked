@@ -43,7 +43,7 @@ const PrizesAndRewards = () => {
                             </div>
                             <h1 className="tw-font-bold tw-text-white sm:tw-text-2xl">1st</h1>
                             <h1 className="tw-font-semibold tw-text-white sm:tw-text-[1.2rem]">Runner</h1>
-                            <h1 className="tw-font-bold tw-text-lightBlue tw-text-base sm:tw-text-lg lg:tw-text-[1.6rem]">400,000</h1>
+                            <h1 className="tw-font-bold tw-text-lightBlue tw-text-base sm:tw-text-lg lg:tw-text-[1.6rem]">N400,000</h1>
                         </div>
                     </Col>
                     <Col span={8}>
@@ -53,7 +53,7 @@ const PrizesAndRewards = () => {
                             </div>
                             <h1 className="tw-font-bold tw-text-white sm:tw-text-2xl">3rd</h1>
                             <h1 className="tw-font-semibold tw-text-white sm:tw-text-[1.2rem]">Runner</h1>
-                            <h1 className="tw-font-bold tw-text-violet tw-text-base sm:tw-text-lg lg:tw-text-[1.6rem]">150,000</h1>
+                            <h1 className="tw-font-bold tw-text-violet tw-text-base sm:tw-text-lg lg:tw-text-[1.6rem]">N150,000</h1>
                         </div>
                     </Col>
                 </Row>
