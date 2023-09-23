@@ -9,7 +9,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import Timeline from "./components/Timeline";
 
 const Landing = () => {
-    return (<div>
+    return (<div className="tw-overflow-x-hidden">
         <NavBar />
         <Hero />
         <IntroductionToGetlinked />
