@@ -5,15 +5,17 @@ import trophy from "../../../assets/images/landingPage/trophy.png"
 import medal2 from "../../../assets/images/landingPage/medal2.png"
 import medal3 from "../../../assets/images/landingPage/medal3.png"
 import medal1 from "../../../assets/images/landingPage/medal1.png"
+import styled from "styled-components";
+import bground from "../../../assets/images/bg/prizes.png"
 
 const PrizesAndRewards = () => {
-    return (<ComponentContainer className="tw-py-[90px]">
+    return (<Container className="tw-py-[90px]">
         <Row gutter={[30, 30]}>
-            <Col xs={0} md={12}></Col>
-            <Col xs={24} md={12}>
-                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Prizes and</h1>
-                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">Rewards</h1>
-                <Paragraph className="lg:tw-w-[64%]">Highlight of the prizes or rewards for winners and
+            <Col xs={0} lg={12}></Col>
+            <Col xs={24} lg={12}>
+                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center lg:tw-text-left">Prizes and</h1>
+                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide tw-text-center lg:tw-text-left">Rewards</h1>
+                <Paragraph className="lg:tw-w-[64%] tw-text-center lg:tw-text-left">Highlight of the prizes or rewards for winners and
                     for participants.
                 </Paragraph>
             </Col>
@@ -59,7 +61,12 @@ const PrizesAndRewards = () => {
                 </Row>
             </Col>
         </Row>
-    </ComponentContainer>);
+    </Container>);
 }
 
+const Container = styled(ComponentContainer)`
+    /* background-image: url(${bground});
+    background-blend-mode: hard-light;
+    background-size: cover; */
+`
 export default PrizesAndRewards;

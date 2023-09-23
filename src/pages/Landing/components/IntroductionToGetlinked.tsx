@@ -47,15 +47,15 @@ const IntroductionToGetlinked = () => {
         <AddBlurBg className="tw-bg-darkPurple">
             <Row className="tw-items-center tw-mb-10" gutter={[20, 50]}>
                 <Col xs={24} lg={12}>
-                    <div className="tw-w-full">
-                        <img src={theBigIdea} alt="" />
+                    <div className="tw-w-full tw-flex">
+                        <img src={theBigIdea} alt="" className="tw-mx-auto" />
                     </div>
                 </Col>
                 <Col xs={24} lg={12}>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Introduction to getlinked</h1>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">tech Hackathon 1.0</h1>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Introduction to getlinked</h1>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">tech Hackathon 1.0</h1>
 
-                    <Paragraph className="tw-mt-4">
+                    <Paragraph className="tw-mt-4 tw-text-center md:tw-text-left">
                         Our tech hackathon is a melting pot of visionaries, and its purpose is as
                         clear as day: to shape the future. Whether you're a coding genius, a
                         design maverick, or a concept wizard, you'll have the chance to transform
@@ -67,16 +67,16 @@ const IntroductionToGetlinked = () => {
             </Row>
 
             <Row className="tw-items-center tw-mb-10" gutter={[20, 20]}>
-                <Col sm={{ span: 24, order: 2 }} lg={{span:12, order: 2}}>
+                <Col sm={{ span: 24, order: 2 }} lg={{ span: 12, order: 2 }}>
                     <div className="tw-w-full tw-flex">
                         <img src={womanSitting} alt="" />
                     </div>
                 </Col>
-                <Col sm={{ span: 24, order: 1 }} lg={{span:12, order: 1}}>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Rules and</h1>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">Guidelines</h1>
+                <Col sm={{ span: 24, order: 1 }} lg={{ span: 12, order: 1 }}>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Rules and</h1>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Guidelines</h1>
 
-                    <Paragraph className="tw-mt-4">
+                    <Paragraph className="tw-mt-4 tw-text-center md:tw-text-left">
                         Our tech hackathon is a melting pot of visionaries, and its purpose is as
                         clear as day: to shape the future. Whether you're a coding genius, a
                         design maverick, or a concept wizard, you'll have the chance to transform
@@ -96,14 +96,16 @@ const IntroductionToGetlinked = () => {
                     </div>
                 </Col>
                 <Col xs={24} lg={12}>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Judging Criteria</h1>
-                    <h1 className="tw-font-semibold tw-mb-4 tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">Key attributes</h1>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Judging Criteria</h1>
+                    <h1 className="tw-font-semibold tw-mb-4 tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Key attributes</h1>
 
                     {criteriaAttributes.map((val, idx) =>
-                        <Paragraph key={idx} className="tw-mb-5">
+                        <Paragraph key={idx} className="tw-mb-5 tw-text-center md:tw-text-left">
                             <span className="tw-text-pinkRed tw-font-bold">{val.title}</span>: {val.body}
                         </Paragraph>)}
-                    <Button className="tw-mt-8">Read More</Button>
+                    <div className="tw-flex">
+                        <Button className="tw-mt-8 tw-mx-auto md:tw-m-0">Read More</Button>
+                    </div>
                 </Col>
             </Row>
         </AddBlurBg>

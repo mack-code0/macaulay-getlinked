@@ -36,10 +36,10 @@ const FrequentlyAskedQuestions = () => {
         {/* <AddBlurBg className="tw-bg-darkPurple"> */}
             <Row className="tw-items-center" gutter={[20, 20]}>
                 <Col xs={24} lg={12}>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Frequently Asked</h1>
-                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">Questions</h1>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Frequently Asked</h1>
+                    <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Questions</h1>
 
-                    <Paragraph className="tw-mt-4">
+                    <Paragraph className="tw-mt-4 tw-text-center md:tw-text-left">
                         We got answers to the questions that you might
                         want to ask about getlinked Hackathon 1.0
                     </Paragraph>

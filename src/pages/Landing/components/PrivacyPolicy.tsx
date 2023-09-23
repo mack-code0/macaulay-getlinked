@@ -9,12 +9,12 @@ const PrivacyPolicy = () => {
     return (<ComponentContainer className="tw-py-[90px]">
         <Row gutter={[20, 20]}>
             <Col xs={24} md={12}>
-                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Privacy Policy and</h1>
-                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">Terms</h1>
-                <Paragraph className="tw-opacity-[.8] tw-mt-5" >
+                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Privacy Policy and</h1>
+                <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide tw-text-center md:tw-text-left">Terms</h1>
+                <Paragraph className="tw-opacity-[.8] tw-mt-5 tw-text-center md:tw-text-left" >
                     Last updated on September 12, 2023
                 </Paragraph>
-                <Paragraph className="tw-my-10">
+                <Paragraph className="tw-my-10 tw-text-center md:tw-text-left">
                     Below are our privacy & policy, which outline a lot of goodies.
                     it’s our aim to always take of our participant
                 </Paragraph>
