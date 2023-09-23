@@ -7,9 +7,11 @@ import facebook from "../../assets/images/landingPage/icons/facebook.svg"
 import instagram from "../../assets/images/landingPage/icons/instagram.svg"
 import linkedin from "../../assets/images/landingPage/icons/linkedin.svg"
 import Button from "../../components/Button";
+import styled from "styled-components";
+import bground from "../../assets/images/bg/ContactPage.png"
 
 const Contact = () => {
-    return (<div className="!tw-bg-contactBg tw-bg-cover">
+    return (<Container className="!tw-bg-darkPurple">
         <NavBar />
         <ComponentContainer className="lg:tw-py-[300px] tw-py-[100px] !tw-bg-[transparent]">
             <Row className="lg:tw-items-center" gutter={[20, 20]}>
@@ -90,7 +92,12 @@ const Contact = () => {
                 </Col>
             </Row>
         </ComponentContainer>
-    </div>);
+    </Container>);
 }
+
+const Container = styled.div`
+    background-image: url(${bground});
+    background-size: cover;
+`
 
 export default Contact;

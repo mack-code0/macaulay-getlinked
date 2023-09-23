@@ -74,7 +74,7 @@ export default function NavBar() {
                         <ul className="tw-items-center tw-justify-center tw-space-y-8 md:tw-flex md:tw-space-x-6 md:tw-space-y-0">
                             {navLinks.map((link, idx) =>
                                 <li key={idx} className="tw-text-[#fff] tw-font-medium">
-                                    <a href={link.link} className="hover:tw-text-[#fff] text-[#fff] tw-text-sm hover:tw-text-opacity-50">{link.text}</a>
+                                    <a onClick={() => navigate(link.link)} className="hover:tw-text-[#fff] text-[#fff] tw-text-sm hover:tw-text-opacity-50">{link.text}</a>
                                 </li>)}
                         </ul>
                     </div>
