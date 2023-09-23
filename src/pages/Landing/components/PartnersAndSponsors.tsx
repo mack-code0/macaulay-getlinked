@@ -6,10 +6,12 @@ import winwise from "../../../assets/images/landingPage/partners/Winwise.png"
 import wisper from "../../../assets/images/landingPage/partners/wisper.png"
 import paybox from "../../../assets/images/landingPage/partners/Paybox.png"
 import vizual from "../../../assets/images/landingPage/partners/Vizual Plus.png"
+import bground from "../../../assets/images/bg/ContactPage.png"
+import styled from "styled-components";
 
 const PartnersAndSponsors = () => {
     return (
-        <ComponentContainer className="tw-py-[90px]">
+        <Container className="tw-py-[90px]">
             <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center">Partners and Sponsors</h1>
             <Paragraph className="tw-text-center tw-mb-[50px] lg:tw-w-[27%] tw-mx-auto">
                 Getlinked Hackathon 1.0 is honored to have the
@@ -78,8 +80,14 @@ const PartnersAndSponsors = () => {
                     </div>
                 </div>
             </div>
-        </ComponentContainer>
+        </Container>
     );
 }
+
+const Container = styled(ComponentContainer)`
+    background-image: url(${bground});
+    /* background-blend-mode: hard-light; */
+    background-size: cover;
+`
 
 export default PartnersAndSponsors;

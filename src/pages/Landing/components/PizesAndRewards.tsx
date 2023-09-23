@@ -6,7 +6,7 @@ import medal2 from "../../../assets/images/landingPage/medal2.png"
 import medal3 from "../../../assets/images/landingPage/medal3.png"
 import medal1 from "../../../assets/images/landingPage/medal1.png"
 import styled from "styled-components";
-import bground from "../../../assets/images/bg/prizes.png"
+import bground from "../../../assets/images/bg/ContactPage.png"
 
 const PrizesAndRewards = () => {
     return (<Container className="tw-py-[90px]">
@@ -65,8 +65,8 @@ const PrizesAndRewards = () => {
 }
 
 const Container = styled(ComponentContainer)`
-    /* background-image: url(${bground});
-    background-blend-mode: hard-light;
-    background-size: cover; */
+    background-image: url(${bground});
+    /* background-blend-mode: hard-light; */
+    background-size: cover;
 `
 export default PrizesAndRewards;
