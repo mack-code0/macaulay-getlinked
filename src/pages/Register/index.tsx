@@ -67,6 +67,7 @@ const Register = () => {
 
 
     return (<div className="!tw-bg-contactBg tw-bg-cover tw-overflow-x-hidden">
+        <NavBar />
         {successfullyRegistered
             && <div className="tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center tw-backdrop-blur-sm tw-bg-black tw-bg-opacity-70 tw-z-50">
                 <div className="tw-border tw-border-violet tw-p-8 tw-rounded-lg tw-shadow-lg tw-text-center tw-flex tw-flex-col tw-items-center">
@@ -84,7 +85,6 @@ const Register = () => {
                     <Button onClick={() => window.location.reload()} className="tw-w-full">Back</Button>
                 </div>
             </div>}
-        <NavBar />
         <ComponentContainer className="lg:tw-py-[150px] tw-py-[100px] !tw-bg-[transparent]">
             <Row className="tw-items-center" gutter={[20, 20]}>
                 <Col xs={24} lg={10}>
@@ -213,7 +213,7 @@ const Register = () => {
                                                 onBlur={handleBlur}
                                                 options={categoriesState.data.map((category) => ({ value: category.id, label: category.name }))}
                                             />
-                                            <ErrorMessage name="category" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                            <ErrorMessage name="category.value" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
                                         </div>
 
                                         <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
@@ -229,7 +229,7 @@ const Register = () => {
                                                 onBlur={handleBlur}
                                                 placeholder="Select"
                                             />
-                                            <ErrorMessage name="group_size" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                            <ErrorMessage name="group_size.value" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
                                         </div>
                                     </div>
 
@@ -241,7 +241,6 @@ const Register = () => {
                                             <Checkbox
                                                 checked={values.privacy_poclicy_accepted === "true"}
                                                 onChange={(e) => setFieldValue("privacy_poclicy_accepted", e.target.checked ? "true" : "")}
-                                                defaultChecked
                                                 color="#ffffff21"
                                                 styles={{
                                                     input: { background: "none" }
