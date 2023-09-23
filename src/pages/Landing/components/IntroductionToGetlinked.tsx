@@ -43,7 +43,7 @@ const criteriaAttributes: { title: string, body: string }[] = [
 ]
 
 const IntroductionToGetlinked = () => {
-    return (<ComponentContainer className="tw-py-[90px]">
+    return (<ComponentContainer id="overview" className="tw-py-[90px]">
         <AddBlurBg className="tw-bg-darkPurple">
             <Row className="tw-items-center" gutter={[20, 20]}>
                 <Col xs={24} lg={12}>

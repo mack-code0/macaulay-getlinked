@@ -1,7 +1,7 @@
 import Paragraph from "../../../components/Paragraph";
 
 const Timeline = () => {
-    return (<div className="tw-bg-darkPurple tw-pb-40">
+    return (<div id="timeline" className="tw-bg-darkPurple tw-pb-40">
         <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide tw-text-center">TImeline</h1>
         <Paragraph className="tw-text-center tw-mb-[50px] lg:tw-w-[27%] tw-mx-auto">Here is the breakdown of the time we anticipate
             using for the upcoming event.</Paragraph>

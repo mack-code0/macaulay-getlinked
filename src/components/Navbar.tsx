@@ -4,16 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 const navLinks = [
     {
-        link: "/",
-        text: "Timeline"
+        link: "/#timeline",
+        text: "Timeline",
+        href: true
     },
     {
-        link: "/",
-        text: "Overview"
+        link: "/#overview",
+        text: "Overview",
+        href: true
     },
     {
-        link: "/",
-        text: "FAQs"
+        link: "/#faqs",
+        text: "FAQs",
+        href: true
     },
     {
         link: "/contact-us",
@@ -74,7 +77,9 @@ export default function NavBar() {
                         <ul className="tw-items-center tw-justify-center tw-space-y-8 md:tw-flex md:tw-space-x-6 md:tw-space-y-0">
                             {navLinks.map((link, idx) =>
                                 <li key={idx} className="tw-text-[#fff] tw-font-medium">
-                                    <a onClick={() => navigate(link.link)} className="tw-cursor-pointer hover:tw-text-[#fff] text-[#fff] tw-text-sm hover:tw-text-opacity-50">{link.text}</a>
+                                    {link.href ?
+                                        <a href={link.link} className="tw-cursor-pointer hover:tw-text-[#fff] text-[#fff] tw-text-sm hover:tw-text-opacity-50">{link.text}</a>
+                                        : <a onClick={() => navigate(link.link)} className="tw-cursor-pointer hover:tw-text-[#fff] text-[#fff] tw-text-sm hover:tw-text-opacity-50">{link.text}</a>}
                                 </li>)}
                         </ul>
                     </div>

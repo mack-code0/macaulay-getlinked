@@ -32,7 +32,7 @@ export const questionArray: { answer: string, question: string }[] = [
     },
 ]
 const FrequentlyAskedQuestions = () => {
-    return (<ComponentContainer className="tw-py-[90px]">
+    return (<ComponentContainer id="faqs" className="tw-py-[90px]">
         {/* <AddBlurBg className="tw-bg-darkPurple"> */}
             <Row className="tw-items-center" gutter={[20, 20]}>
                 <Col xs={24} lg={12}>
