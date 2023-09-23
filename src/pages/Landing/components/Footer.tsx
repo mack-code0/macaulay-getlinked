@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
             </Col>
 
-            <Col className="tw-flex tw-justify-center" xs={24} md={7}>
+            <Col className="tw-flex md:tw-justify-center" xs={24} md={7}>
                 <div className="tw-space-y-2 tw-flex tw-flex-col">
                     <Paragraph className="!tw-text-violet !tw-font-bold">Useful Links</Paragraph>
                     <a href="" className="tw-w-fit"><Paragraph className="!tw-text-[12px] hover:!tw-text-violet !tw-text-white tw-font-[500]">Overview</Paragraph></a>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
             </Col>
 
-            <Col className="tw-flex tw-justify-center" xs={24} md={7}>
+            <Col className="tw-flex md:tw-justify-center" xs={24} md={7}>
                 <div className="tw-space-y-2 tw-flex tw-flex-col">
                     <Paragraph className="!tw-text-violet !tw-font-bold">Contact Us</Paragraph>
                     <a href="tel:+2346707653444" className="tw-flex tw-space-x-3 tw-w-fit">
