@@ -39,15 +39,15 @@ const Hero = () => {
         <div className="tw-flex md:tw-flex-row tw-flex-col tw-items-center tw-mt-[58px] ">
             <div className="tw-w-1/2 tw-flex tw-flex-col tw-items-center md:tw-items-start tw-mt-10">
                 <div className="tw-flex md:tw-max-w-min tw-relative">
-                    <h1 className="tw-whitespace-nowrap tw-font-extrabold !tw-font-clashDisplay tw-text-3xl lg:tw-text-6xl tw-text-white">getlinked Tech</h1>
+                    <h1 className="tw-whitespace-nowrap tw-font-extrabold !tw-font-clashDisplay tw-text-5xl lg:tw-text-6xl tw-text-white">getlinked Tech</h1>
                     <img src={bulb} className="tw-absolute tw-right-[19px] -tw-top-[40px] tw-w-[35px]" alt="" />
                 </div>
                 <div className="tw-flex tw-flex-col tw-items-center md:tw-items-start">
                     <div className="tw-flex !tw-items-center">
-                        <h1 className="tw-font-extrabold tw-flex !tw-items-center !tw-font-clashDisplay tw-text-3xl lg:tw-text-6xl tw-text-white">Hackathon <span className="tw-text-violet">1.0</span> <img src={chainEmoji} alt="Chain" className="tw-w-[30px] tw-w-h-auto md:tw-w-[65px]" />
+                        <h1 className="tw-font-extrabold tw-flex !tw-items-center !tw-font-clashDisplay tw-text-5xl lg:tw-text-6xl tw-text-white">Hackathon <span className="tw-text-violet">1.0</span> <img src={chainEmoji} alt="Chain" className="tw-w-[30px] tw-w-h-auto md:tw-w-[65px]" />
                             <img src={fireEmoji} alt="Fire" className="tw-w-[20px] tw-w-h-auto md:tw-w-[40px]" /></h1>
                     </div>
-                    <Paragraph className="md:tw-w-[70%] tw-text-center md:tw-text-left tw-mt-3">Participate in getlinked tech Hackathon 2023 stand a chance to win a Big prize</Paragraph>
+                    <Paragraph className="tw-leading-5 md:tw-leading-7 md:tw-w-[70%] tw-text-center md:tw-text-left tw-mt-3">Participate in getlinked tech Hackathon 2023 stand a chance to win a Big prize</Paragraph>
                     <Button className="!tw-mt-8">Register</Button>
                     <div className="tw-mt-16 tw-flex tw-space-x-4 tw-text-white">
                         <p className="tw-text-5xl tw-font-unicaOne">{elapsedTime.hours().toString().padStart(2, '0')}<small className="tw-text-xs tw-font-unicaOne">H</small></p>
