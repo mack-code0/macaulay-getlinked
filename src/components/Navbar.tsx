@@ -36,24 +36,42 @@ export default function NavBar() {
                         <img src={logo} onClick={() => navigate("/")} className="tw-cursor-pointer tw-w-[120px]" />
                         <div className="md:tw-hidden">
                             <button
-                                className="tw-p-2 tw-text-gray-700 tw-rounded-md tw-outline-none focus:tw-border-gray-400 focus:tw-border"
+                                className="tw-p-2 tw-text-gray-700 tw-rounded-md tw-outline-none"
                                 onClick={() => setNavbar(!navbar)}
                             >
 
                                 {navbar ? (
                                     <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="19"
-                                        height="14"
-                                        fill="none"
-                                        viewBox="0 0 19 14"
-                                    >
-                                        <path
-                                            fill="#fff"
-                                            d="M1.357 0h6.786c.36 0 .705.147.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41H1.358c-.36 0-.705-.147-.96-.41A1.423 1.423 0 010 1.4C0 1.029.143.673.397.41c.255-.263.6-.41.96-.41zm9.5 11.2h6.786c.36 0 .705.148.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41h-6.785c-.36 0-.705-.148-.96-.41a1.423 1.423 0 01-.397-.99c0-.371.143-.727.398-.99.254-.262.6-.41.96-.41zm-9.5-5.6h16.286c.36 0 .705.147.96.41.254.263.397.619.397.99s-.143.727-.398.99c-.254.262-.6.41-.96.41H1.358c-.36 0-.705-.148-.96-.41A1.423 1.423 0 010 7c0-.371.143-.727.397-.99.255-.263.6-.41.96-.41z"
-                                        ></path>
-                                    </svg>
-
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="23"
+                                    height="23"
+                                    fill="none"
+                                    viewBox="0 0 23 23"
+                                  >
+                                    <circle
+                                      cx="11.5"
+                                      cy="11.5"
+                                      r="11"
+                                      stroke="url(#paint0_linear_29_912)"
+                                    ></circle>
+                                    <path
+                                      fill="#F8F8F8"
+                                      d="M6.308 16.692a1.05 1.05 0 001.485 0l3.713-3.713 3.714 3.713a1.05 1.05 0 001.485-1.485l-3.714-3.713 3.714-3.714a1.05 1.05 0 00-1.485-1.485l-3.714 3.714-3.713-3.714A1.05 1.05 0 006.307 7.78l3.714 3.714-3.714 3.713a1.05 1.05 0 000 1.485z"
+                                    ></path>
+                                    <defs>
+                                      <linearGradient
+                                        id="paint0_linear_29_912"
+                                        x1="11.5"
+                                        x2="11.5"
+                                        y1="0"
+                                        y2="23"
+                                        gradientUnits="userSpaceOnUse"
+                                      >
+                                        <stop stopColor="#903AFF"></stop>
+                                        <stop offset="1" stopColor="#FF26B9"></stop>
+                                      </linearGradient>
+                                    </defs>
+                                  </svg>
                                 ) : (
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
