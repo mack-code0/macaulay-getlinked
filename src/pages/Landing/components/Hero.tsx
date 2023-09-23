@@ -37,12 +37,12 @@ const Hero = () => {
             <img src={stroke1} className="tw-absolute -tw-bottom-[10px] tw-w-[160px]" alt="" />
         </div>
         <div className="tw-flex md:tw-flex-row tw-flex-col tw-items-center tw-mt-[58px] ">
-            <div className="tw-w-1/2 tw-flex tw-flex-col tw-items-center tw-mt-10">
+            <div className="tw-w-1/2 tw-flex tw-flex-col tw-items-center md:tw-items-start tw-mt-10">
                 <div className="tw-flex md:tw-max-w-min tw-relative">
                     <h1 className="tw-whitespace-nowrap tw-font-extrabold !tw-font-clashDisplay tw-text-3xl lg:tw-text-6xl tw-text-white">getlinked Tech</h1>
                     <img src={bulb} className="tw-absolute tw-right-[19px] -tw-top-[40px] tw-w-[35px]" alt="" />
                 </div>
-                <div className="tw-flex tw-flex-col tw-items-center">
+                <div className="tw-flex tw-flex-col tw-items-center md:tw-items-start">
                     <div className="tw-flex !tw-items-center">
                         <h1 className="tw-font-extrabold tw-flex !tw-items-center !tw-font-clashDisplay tw-text-3xl lg:tw-text-6xl tw-text-white">Hackathon <span className="tw-text-violet">1.0</span> <img src={chainEmoji} alt="Chain" className="tw-w-[30px] tw-w-h-auto md:tw-w-[65px]" />
                             <img src={fireEmoji} alt="Fire" className="tw-w-[20px] tw-w-h-auto md:tw-w-[40px]" /></h1>
