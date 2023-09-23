@@ -9,17 +9,63 @@ import linkedin from "../../assets/images/landingPage/icons/linkedin.svg"
 import Button from "../../components/Button";
 import registerMan from "../../assets/images/registerMan.png"
 import { Checkbox } from "@mantine/core";
+import ReactSelect from "react-select";
+import selectStyle from "./components/selectStyle";
+import { Formik, Form, ErrorMessage } from "formik";
+import * as yup from "yup"
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
+const initialValues = {
+    email: "",
+    phone_number: "",
+    team_name: "",
+    group_size: "",
+    project_topic: "",
+    category: "",
+    privacy_poclicy_accepted: "",
+}
+
+const validationSchema = yup.object({
+    team_name: yup.string().required("Team Name cannot be blank"),
+    phone_number: yup.number().typeError("Enter valid number").required("Phone Number cannot be blank"),
+    email: yup.string().required("email cannot be blank"),
+    project_topic: yup.string().required("Project Topic cannot be blank"),
+    category: yup.string().required("Category cannot be blank"),
+    group_size: yup.string().required("Group Size cannot be blank"),
+    privacy_poclicy_accepted: yup.string().required("Accept Privacy policy")
+})
 
 const Register = () => {
+    const [categoriesState, setCategoriesState] = useState({
+        data: [] as { id: number, name: string }[] | [],
+        loading: true,
+    })
+
+    const fetchCategories = async () => {
+        try {
+            const { data } = await axios.get(`https://backend.getlinked.ai/hackathon/categories-list`)
+            setCategoriesState(prev => ({ ...prev, data: data }))
+        } catch (error: any) {
+
+        } finally {
+            setCategoriesState(prev => ({ ...prev, loading: false }))
+        }
+    }
+
+    useEffect(() => {
+        fetchCategories()
+    }, [])
     return (<div className="!tw-bg-contactBg tw-bg-cover tw-overflow-x-hidden">
         <NavBar />
         <ComponentContainer className="lg:tw-py-[150px] tw-py-[100px] !tw-bg-[transparent]">
-            <Row className="lg:tw-items-center" gutter={[20, 20]}>
-                <Col className="tw-hidden lg:tw-block" xs={24} lg={12}>
+            <Row className="tw-items-center" gutter={[20, 20]}>
+                <Col xs={24} lg={10}>
                     <img src={registerMan} alt="" />
                 </Col>
-                <Col xs={24} lg={12}>
-                    <div className="tw-p-10 lg:tw-bg-[#e9e9e911] tw-rounded-lg">
+                <Col xs={24} lg={14}>
+                    <div className="lg:tw-p-10 lg:tw-bg-[#e9e9e911] tw-rounded-lg">
                         <h1 className="!tw-font-[300] tw-mb-5 tw-font-clashDisplay tw-text-violet tw-text-xl tw-tracking-wide">
                             Register
                         </h1>
@@ -32,78 +78,136 @@ const Register = () => {
                             CREATE YOUR ACCOUNT
                         </Paragraph>
 
-                        <form className="tw-flex tw-flex-col tw-space-y-7" action="">
-                            <div className="tw-flex tw-space-x-6">
-                                <div className="md:tw-w-1/2 tw-w-full">
-                                    <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
-                                        Team's Name
-                                    </Paragraph>
-                                    <input
-                                        placeholder="Enter the name of your group"
-                                        type="text"
-                                        className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
-                                </div>
+                        <Formik
+                            initialValues={initialValues}
+                            validationSchema={validationSchema}
+                            onSubmit={async (val) => {
+                                try {
+                                    console.log(val)
+                                } catch (error: any) {
 
-                                <div className="md:tw-w-1/2 tw-w-full">
-                                    <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
-                                        Phone
-                                    </Paragraph>
-                                    <input
-                                        placeholder="Enter your phone number"
-                                        type="text"
-                                        className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
-                                </div>
-                            </div>
+                                }
+                            }}
+                        >
+                            {({ values, handleChange, handleBlur, setFieldValue }) =>
+                                <Form className="tw-flex tw-flex-col tw-space-y-7">
+                                    <div className="tw-flex tw-flex-col lg:tw-flex-row tw-space-y-6 lg:tw-space-y-0 lg:tw-space-x-6">
+                                        <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
+                                            <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
+                                                Team's Name
+                                            </Paragraph>
+                                            <input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.team_name}
+                                                name="team_name"
+                                                placeholder="Enter the name of your group"
+                                                type="text"
+                                                className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
+                                            <ErrorMessage name="team_name" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                        </div>
 
-                            <div className="tw-flex tw-space-x-6">
-                                <div className="md:tw-w-1/2 tw-w-full">
-                                    <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
-                                        Email
-                                    </Paragraph>
-                                    <input
-                                        placeholder="Enter your email address"
-                                        type="text"
-                                        className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
-                                </div>
+                                        <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
+                                            <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
+                                                Phone
+                                            </Paragraph>
+                                            <input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.phone_number}
+                                                name="phone_number"
+                                                placeholder="Enter your phone number"
+                                                type="text"
+                                                className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
+                                            <ErrorMessage name="phone_number" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                        </div>
+                                    </div>
 
-                                <div className="md:tw-w-1/2 tw-w-full">
-                                    <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
-                                        Project Topic
-                                    </Paragraph>
-                                    <input
-                                        placeholder="What is your group project topic"
-                                        type="text"
-                                        className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
-                                </div>
-                            </div>
+                                    <div className="tw-flex tw-flex-col lg:tw-flex-row tw-space-y-6 lg:tw-space-y-0 lg:tw-space-x-6">
+                                        <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
+                                            <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
+                                                Email
+                                            </Paragraph>
+                                            <input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.email}
+                                                name="email"
+                                                placeholder="Enter your email address"
+                                                type="text"
+                                                className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
+                                            <ErrorMessage name="email" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                        </div>
 
-                            <div>
-                                <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
-                                    Email
-                                </Paragraph>
-                                <input
-                                    placeholder="Enter your email address"
-                                    type="text"
-                                    className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
-                            </div>
+                                        <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
+                                            <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
+                                                Project Topic
+                                            </Paragraph>
+                                            <input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.project_topic}
+                                                name="project_topic"
+                                                placeholder="What is your group project topic"
+                                                type="text"
+                                                className="tw-text-white placeholder:tw-text-white/[0.5] tw-rounded-md tw-p-3 tw-w-full tw-bg-[#e9e9e911] tw-outline-none tw-border tw-border-white" />
+                                            <ErrorMessage name="project_topic" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                        </div>
+                                    </div>
+
+                                    <div className="tw-flex tw-flex-col lg:tw-flex-row tw-space-y-6 lg:tw-space-y-0 lg:tw-space-x-6">
+                                        <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
+                                            <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
+                                                Category
+                                            </Paragraph>
+                                            <ReactSelect
+                                                isLoading={categoriesState.loading}
+                                                styles={selectStyle}
+                                                placeholder="Select your category"
+                                                value={values.category}
+                                                onChange={(val) => setFieldValue("category", val)}
+                                                options={categoriesState.data.map((category) => ({ value: category.id, label: category.name }))}
+                                            />
+                                            <ErrorMessage name="category" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                        </div>
+
+                                        <div className="tw-w-full lg:tw-w-1/2 tw-w-full tw-relative">
+                                            <Paragraph className="tw-font-[400] tw-leading-tight tw-mb-2">
+                                                Group Size
+                                            </Paragraph>
+                                            <ReactSelect
+                                                onChange={(val) => setFieldValue("category", val)}
+                                                options={Array.from({ length: 10 }).map((_, idx: number) => ({ value: idx + 1, label: idx + 1 }))}
+                                                styles={selectStyle}
+                                                placeholder="Select"
+                                            />
+                                            <ErrorMessage name="group_size" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                        </div>
+                                    </div>
 
 
-                            <div>
-                                <Paragraph className="tw-text-pinkRed tw-italic tw-text-xs tw-mb-3">Please review your registration details before submitting</Paragraph>
-                                <Checkbox
-                                    defaultChecked
-                                    color="#ffffff21"
-                                    styles={{
-                                        input: { background: "none" }
-                                    }}
-                                    label={<Paragraph className="!tw-mt-[-5.9px]">
-                                        I agreed with the event terms and conditions  and privacy policy
-                                    </Paragraph>}
-                                />
-                            </div>
+                                    <div>
+                                        <Paragraph className="tw-text-pinkRed tw-italic tw-text-xs tw-mb-3">Please review your registration details before submitting</Paragraph>
+                                        <div className="tw-relative">
+                                            <ErrorMessage name="privacy_poclicy_accepted" render={(msg) => <small className="tw-text-xs tw-absolute -tw-bottom-4 tw-left-0 tw-w-full tw-text-red-500 tw-whitespace-nowrap">{msg}</small>} />
+                                            <Checkbox
+                                                checked={values.privacy_poclicy_accepted === "true"}
+                                                onChange={(e) => setFieldValue("privacy_poclicy_accepted", e.target.checked ? "true" : "")}
+                                                defaultChecked
+                                                color="#ffffff21"
+                                                styles={{
+                                                    input: { background: "none" }
+                                                }}
+                                                label={<Paragraph className="!tw-mt-[-5.9px]">
+                                                    I agreed with the event terms and conditions  and privacy policy
+                                                </Paragraph>}
+                                            />
+                                        </div>
+                                    </div>
 
-                            <Button className="tw-w-full">Register Now</Button>
-                        </form>
+                                    <Button type="submit" className="tw-w-full">Register Now</Button>
+                                </Form>}
+                        </Formik>
                     </div>
                     <div className="tw-flex tw-flex-col lg:tw-hidden">
                         <Paragraph className="tw-font-bold !tw-text-[12px] tw-text-violet tw-opacity-[.9] tw-mx-auto">
