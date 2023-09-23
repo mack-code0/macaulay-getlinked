@@ -45,7 +45,7 @@ const criteriaAttributes: { title: string, body: string }[] = [
 const IntroductionToGetlinked = () => {
     return (<ComponentContainer id="overview" className="tw-py-[90px]">
         <AddBlurBg className="tw-bg-darkPurple">
-            <Row className="tw-items-center" gutter={[20, 20]}>
+            <Row className="tw-items-center tw-mb-10" gutter={[20, 50]}>
                 <Col xs={24} lg={12}>
                     <div className="tw-w-full">
                         <img src={theBigIdea} alt="" />
@@ -66,13 +66,13 @@ const IntroductionToGetlinked = () => {
                 </Col>
             </Row>
 
-            <Row className="tw-items-center" gutter={[20, 20]}>
-                <Col order={2} xs={24} lg={12}>
+            <Row className="tw-items-center tw-mb-10" gutter={[20, 20]}>
+                <Col sm={{ span: 24, order: 2 }} lg={{span:12, order: 2}}>
                     <div className="tw-w-full tw-flex">
                         <img src={womanSitting} alt="" />
                     </div>
                 </Col>
-                <Col order={1} xs={24} lg={12}>
+                <Col sm={{ span: 24, order: 1 }} lg={{span:12, order: 1}}>
                     <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-white tw-text-2xl tw-tracking-wide">Rules and</h1>
                     <h1 className="tw-font-semibold tw-font-clashDisplay tw-text-violet tw-text-2xl tw-tracking-wide">Guidelines</h1>
 
